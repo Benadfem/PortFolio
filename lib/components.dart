@@ -46,3 +46,36 @@ class _TabsWebState extends State<TabsWeb> {
     );
   }
 }
+
+class SansBold extends StatelessWidget {
+  final String title;
+  final double size;
+  const SansBold(this.title, this.size, {super.key});
+
+  @override
+  Widget build(BuildContext context) {
+    return Text(
+      title,
+      style: GoogleFonts.openSans(
+        fontSize: size,
+        fontWeight: FontWeight.bold,
+      ),
+    );
+  }
+}
+
+class SansRegular extends StatelessWidget {
+  final String title;
+  final double size;
+  const SansRegular(this.title, this.size, {super.key});
+
+  @override
+  Widget build(BuildContext context) {
+    return Text(
+      title,
+      style: GoogleFonts.openSans(
+        fontSize: size,
+      ),
+    );
+  }
+}

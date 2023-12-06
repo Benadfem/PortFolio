@@ -1,5 +1,4 @@
 import 'package:flutter/material.dart';
-import 'package:google_fonts/google_fonts.dart';
 
 import '../components.dart';
 
@@ -47,10 +46,15 @@ class _LandingPageWebState extends State<LandingPageWeb> {
           Container(
             height: heightDevice - 56,
             child: Row(
+              mainAxisAlignment: MainAxisAlignment.spaceAround,
               children: [
                 Column(
+                  mainAxisAlignment: MainAxisAlignment.center,
+                  crossAxisAlignment: CrossAxisAlignment.start,
                   children: [
                     Container(
+                      padding: const EdgeInsets.symmetric(
+                          horizontal: 20, vertical: 10),
                       decoration: const BoxDecoration(
                           borderRadius: BorderRadius.only(
                             topRight: Radius.circular(20),
@@ -58,13 +62,44 @@ class _LandingPageWebState extends State<LandingPageWeb> {
                             topLeft: Radius.circular(20),
                           ),
                           color: Colors.tealAccent),
-                      child: Text(
-                        'Hello i;m ',
-                        style: GoogleFonts.openSans(
-                          fontSize: 20.0,
-                          fontWeight: FontWeight.bold,
+                      child: const SansBold('Hello I\'m', 15),
+                    ),
+                    const SizedBox(height: 15.0),
+                    const SansBold('Adedara Benson', 55.0),
+                    const SansRegular('Flutter Developer', 30),
+                    const SizedBox(
+                      height: 10,
+                    ),
+                    const Row(
+                      children: [
+                        Icon(Icons.email),
+                        SizedBox(
+                          width: 20,
                         ),
-                      ),
+                        SansRegular('adedoyin.adedara@gmail.com', 15)
+                      ],
+                    ),
+                    const SizedBox(height: 10),
+                    const Row(
+                      children: [
+                        Icon(Icons.phone),
+                        SizedBox(
+                          width: 20,
+                        ),
+                        SansRegular('+234 703 581 4461', 15),
+                      ],
+                    ),
+                    const SizedBox(
+                      height: 10,
+                    ),
+                    const Row(
+                      children: [
+                        Icon(Icons.location_city),
+                        SizedBox(
+                          width: 20,
+                        ),
+                        SansRegular('No 2 Ibadan Nigetia', 15),
+                      ],
                     ),
                   ],
                 ),

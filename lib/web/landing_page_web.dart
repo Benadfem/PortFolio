@@ -43,7 +43,7 @@ class _LandingPageWebState extends State<LandingPageWeb> {
       ),
       body: ListView(
         children: [
-          Container(
+          SizedBox(
             height: heightDevice - 56,
             child: Row(
               mainAxisAlignment: MainAxisAlignment.spaceAround,
@@ -98,7 +98,7 @@ class _LandingPageWebState extends State<LandingPageWeb> {
                         SizedBox(
                           width: 20,
                         ),
-                        SansRegular('No 2 Ibadan Nigetia', 15),
+                        SansRegular('No 2 Ibadan Nigeria', 15),
                       ],
                     ),
                   ],
@@ -119,6 +119,207 @@ class _LandingPageWebState extends State<LandingPageWeb> {
               ],
             ),
           ),
+          // second phase of the page
+          SizedBox(
+            height: heightDevice / 1.5,
+            child: Padding(
+              padding: const EdgeInsets.all(50.0),
+              child: Row(
+                mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                crossAxisAlignment: CrossAxisAlignment.center,
+                children: [
+                  Expanded(
+                    child: Image.asset(
+                      'images/image-web.png',
+                    ),
+                  ),
+                  const SizedBox(
+                    width: 15.0,
+                  ),
+                  const Column(
+                    crossAxisAlignment: CrossAxisAlignment.start,
+                    mainAxisAlignment: MainAxisAlignment.center,
+                    children: [
+                      SansBold('About', 30),
+                      SizedBox(
+                        height: 10,
+                      ),
+                      SansRegular(
+                          'Hello! I \'m Adedara Benson, I Specialise in Flutter Development ',
+                          15),
+                      SansRegular(
+                          'I strive to ensure outstanding perfomace with state of ',
+                          15),
+                      SansRegular(
+                          'the art security for Android, Ios, Linux, Web and Windows ',
+                          15),
+                      SizedBox(
+                        height: 10,
+                      ),
+                      Row(
+                        children: [
+                          // create a general class to hold the properties of the skills
+                          //using TextWithBorder
+                          TextWithBorder('Flutter'),
+                          SizedBox(width: 7.0),
+                          TextWithBorder('Firebase'),
+                          SizedBox(
+                            width: 7.0,
+                          ),
+                          TextWithBorder('Ios'),
+                          SizedBox(
+                            width: 7.0,
+                          ),
+                          TextWithBorder('Android'),
+                          SizedBox(
+                            width: 7.0,
+                          ),
+                        ],
+                      )
+                    ],
+                  ),
+                ],
+              ),
+            ),
+          ),
+          // third Phase of the page
+          Container(
+            decoration: const BoxDecoration(
+              color: Colors.white,
+            ),
+            height: heightDevice / 1.7,
+            child: Column(
+              mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+              children: [
+                const SansBold('What i do', 40),
+                Row(
+                  mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+                  children: [
+                    Card(
+                      elevation: 30,
+                      color: Colors.white,
+                      shape: RoundedRectangleBorder(
+                        borderRadius: BorderRadius.circular(15.0),
+                      ),
+                      shadowColor: Colors.tealAccent,
+                      child: Padding(
+                        padding: const EdgeInsets.all(15.0),
+                        child: Column(
+                          mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+                          children: [
+                            Image.asset(
+                              'images/web.png',
+                              height: 200,
+                              width: 200,
+                              // fit: BoxFit.contain,
+                            ),
+                            const SizedBox(
+                              height: 5.0,
+                            ),
+                            const SansBold('Web Developmemt ', 15),
+                          ],
+                        ),
+                      ),
+                    ),
+                    Card(
+                      elevation: 30.0,
+                      shadowColor: Colors.tealAccent,
+                      shape: RoundedRectangleBorder(
+                        borderRadius: BorderRadiusDirectional.circular(15.0),
+                      ),
+                      child: Padding(
+                        padding: const EdgeInsets.all(15.0),
+                        child: Column(
+                          mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+                          children: [
+                            Image.asset(
+                              'images/app.png',
+                              height: 200,
+                              width: 200,
+                              // fit: BoxFit.contain,
+                            ),
+                            const SizedBox(
+                              height: 5.0,
+                            ),
+                            const SansBold('App Developmemt ', 15),
+                          ],
+                        ),
+                      ),
+                    ),
+                    Card(
+                      elevation: 30.0,
+                      shadowColor: Colors.tealAccent,
+                      shape: RoundedRectangleBorder(
+                        borderRadius: BorderRadiusDirectional.circular(15.0),
+                      ),
+                      child: Padding(
+                        padding: const EdgeInsets.all(15.0),
+                        child: Column(
+                          mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+                          children: [
+                            Image.asset(
+                              'images/firebase.png',
+                              height: 200,
+                              width: 200,
+                              fit: BoxFit.contain,
+                            ),
+                            const SizedBox(
+                              height: 5.0,
+                            ),
+                            const SansBold('Back-end Development ', 15),
+                          ],
+                        ),
+                      ),
+                    ),
+                  ],
+                ),
+              ],
+            ),
+          ),
+          //Fourth phase of the page
+          SizedBox(
+            height: heightDevice,
+            child: Column(
+              mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+              children: [
+                const SansBold('Contact me', 40.0),
+                Row(
+                  mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+                  children: [
+                    Column(
+                      children: [
+                        Column(
+                          crossAxisAlignment: CrossAxisAlignment.start,
+                          children: [
+                            SizedBox(
+                              width: 350,
+                              child: TextFormField(
+                                decoration: const InputDecoration(
+                                  enabledBorder: OutlineInputBorder(
+                                    borderSide: BorderSide(color: Colors.teal),
+                                    borderRadius: BorderRadius.all(
+                                      Radius.circular(10.0),
+                                    ),
+                                  ),
+                                  focusedBorder: OutlineInputBorder(
+                                    borderSide: BorderSide(
+                                        color: Colors.tealAccent, width: 2),
+                                    borderRadius: BorderRadius.all(
+                                      Radius.circular(15.0),
+                                    ),
+                                  ),
+                                ),
+                              ),
+                            ),
+                          ],
+                        ),
+                      ],
+                    ),
+                  ],
+                )
+              ],
+            ),
+          )
         ],
       ),
     );

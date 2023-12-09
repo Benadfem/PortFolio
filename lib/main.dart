@@ -15,9 +15,10 @@ class MyApp extends StatelessWidget {
       debugShowCheckedModeBanner: false,
       home: LayoutBuilder(builder: (context, constraints) {
         if (constraints.maxWidth > 800) {
-          return LandingPageWeb();
-        } else
-          return LandingPageMobile();
+          return const LandingPageWeb();
+        } else {
+          return const LandingPageMobile();
+        }
       }),
     );
   }

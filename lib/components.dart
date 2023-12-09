@@ -79,3 +79,21 @@ class SansRegular extends StatelessWidget {
     );
   }
 }
+
+class TextWithBorder extends StatelessWidget {
+  final String title;
+  const TextWithBorder(this.title, {super.key});
+
+  @override
+  Widget build(BuildContext context) {
+    return Container(
+      decoration: BoxDecoration(
+        border: Border.all(
+            color: Colors.tealAccent, style: BorderStyle.solid, width: 2),
+        borderRadius: BorderRadius.circular(5.0),
+      ),
+      padding: const EdgeInsets.all(7.0),
+      child: SansRegular(title, 15.0),
+    );
+  }
+}

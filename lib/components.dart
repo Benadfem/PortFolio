@@ -153,3 +153,76 @@ class TextForm extends StatelessWidget {
     );
   }
 }
+
+class AnimatedCardWeb extends StatefulWidget {
+  final imagePath;
+  final text;
+  final fit;
+  final reverse;
+  const AnimatedCardWeb(
+      {super.key,
+      required this.imagePath,
+      required this.text,
+      this.fit,
+      this.reverse});
+
+  @override
+  State<AnimatedCardWeb> createState() => _AnimatedCardWebState();
+}
+
+class _AnimatedCardWebState extends State<AnimatedCardWeb>
+    with SingleTickerProviderStateMixin {
+  late AnimationController _controller = AnimationController(
+    vsync: this,
+    duration: const Duration(
+      seconds: 4,
+    ),
+  )..repeat(reverse: true);
+
+  late Animation<Offset> _animation = Tween(
+    begin: widget.reverse == true ? const Offset(0.0, 0.08) : Offset.zero,
+    end: widget.reverse == true ? Offset.zero : const Offset(0.08, 0.0),
+  ).animate(_controller);
+
+  @override
+  void dispose() {
+    _controller.dispose();
+    super.dispose();
+  }
+
+  @override
+  Widget build(BuildContext context) {
+    return SlideTransition(
+      position: _animation,
+      child: Card(
+        elevation: 30,
+        shape: RoundedRectangleBorder(
+          borderRadius: BorderRadius.circular(15.0),
+          side: const BorderSide(
+            color: Colors.tealAccent,
+          ),
+        ),
+        shadowColor: Colors.tealAccent,
+        child: Padding(
+          padding: const EdgeInsets.all(15.0),
+          child: Column(
+            crossAxisAlignment: CrossAxisAlignment.start,
+            mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+            children: [
+              Image.asset(
+                widget.imagePath,
+                height: 200,
+                width: 200,
+                fit: widget.fit == null ? null : BoxFit.contain,
+              ),
+              const SizedBox(
+                height: 10.0,
+              ),
+              SansBold(widget.text, 15),
+            ],
+          ),
+        ),
+      ),
+    );
+  }
+}

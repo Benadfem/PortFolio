@@ -81,6 +81,8 @@ class SansRegular extends StatelessWidget {
 }
 
 class TextWithBorder extends StatelessWidget {
+  // a customized widget that is used globally in the app for
+  //showing text with border
   final String title;
   const TextWithBorder(this.title, {super.key});
 
@@ -94,6 +96,60 @@ class TextWithBorder extends StatelessWidget {
       ),
       padding: const EdgeInsets.all(7.0),
       child: SansRegular(title, 15.0),
+    );
+  }
+}
+
+class TextForm extends StatelessWidget {
+  final String heading;
+  final String hintText;
+  final int maxLine;
+  final double width;
+
+  const TextForm(
+    this.maxLine, {
+    super.key,
+    required this.heading,
+    required this.hintText,
+    required this.width,
+  });
+
+  @override
+  Widget build(BuildContext context) {
+    return Column(
+      children: [
+        Column(
+          crossAxisAlignment: CrossAxisAlignment.start,
+          children: [
+            SansRegular(heading, 15),
+            const SizedBox(
+              height: 5,
+            ),
+            SizedBox(
+              width: width,
+              child: TextFormField(
+                maxLines: maxLine,
+                decoration: InputDecoration(
+                  hintText: hintText,
+                  hintStyle: GoogleFonts.poppins(fontSize: 15),
+                  enabledBorder: const OutlineInputBorder(
+                    borderSide: BorderSide(color: Colors.teal),
+                    borderRadius: BorderRadius.all(
+                      Radius.circular(10.0),
+                    ),
+                  ),
+                  focusedBorder: const OutlineInputBorder(
+                    borderSide: BorderSide(color: Colors.tealAccent, width: 2),
+                    borderRadius: BorderRadius.all(
+                      Radius.circular(15.0),
+                    ),
+                  ),
+                ),
+              ),
+            ),
+          ],
+        ),
+      ],
     );
   }
 }

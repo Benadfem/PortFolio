@@ -13,6 +13,7 @@ class _LandingPageWebState extends State<LandingPageWeb> {
   @override
   Widget build(BuildContext context) {
     var heightDevice = MediaQuery.of(context).size.height;
+    var widthDevice = MediaQuery.of(context).size.width;
     return Scaffold(
       drawer: const Drawer(),
       backgroundColor: Colors.white,
@@ -98,7 +99,7 @@ class _LandingPageWebState extends State<LandingPageWeb> {
                         SizedBox(
                           width: 20,
                         ),
-                        SansRegular('No 2 Ibadan Nigeria', 15),
+                        SansRegular('No 2 Area 1 Ibadan Nigeria', 15),
                       ],
                     ),
                   ],
@@ -140,9 +141,9 @@ class _LandingPageWebState extends State<LandingPageWeb> {
                     crossAxisAlignment: CrossAxisAlignment.start,
                     mainAxisAlignment: MainAxisAlignment.center,
                     children: [
-                      SansBold('About', 30),
+                      SansBold('About me', 40),
                       SizedBox(
-                        height: 10,
+                        height: 15.0,
                       ),
                       SansRegular(
                           'Hello! I \'m Adedara Benson, I Specialise in Flutter Development ',
@@ -183,11 +184,8 @@ class _LandingPageWebState extends State<LandingPageWeb> {
             ),
           ),
           // third Phase of the page
-          Container(
-            decoration: const BoxDecoration(
-              color: Colors.white,
-            ),
-            height: heightDevice / 1.7,
+          SizedBox(
+            height: heightDevice / 1.3,
             child: Column(
               mainAxisAlignment: MainAxisAlignment.spaceEvenly,
               children: [
@@ -214,7 +212,7 @@ class _LandingPageWebState extends State<LandingPageWeb> {
                               // fit: BoxFit.contain,
                             ),
                             const SizedBox(
-                              height: 5.0,
+                              height: 10.0,
                             ),
                             const SansBold('Web Developmemt ', 15),
                           ],
@@ -282,44 +280,55 @@ class _LandingPageWebState extends State<LandingPageWeb> {
             child: Column(
               mainAxisAlignment: MainAxisAlignment.spaceEvenly,
               children: [
-                const SansBold('Contact me', 40.0),
-                Row(
+                const SansBold('About me', 40),
+                const Row(
                   mainAxisAlignment: MainAxisAlignment.spaceEvenly,
                   children: [
                     Column(
                       children: [
-                        Column(
-                          crossAxisAlignment: CrossAxisAlignment.start,
-                          children: [
-                            SizedBox(
-                              width: 350,
-                              child: TextFormField(
-                                decoration: const InputDecoration(
-                                  enabledBorder: OutlineInputBorder(
-                                    borderSide: BorderSide(color: Colors.teal),
-                                    borderRadius: BorderRadius.all(
-                                      Radius.circular(10.0),
-                                    ),
-                                  ),
-                                  focusedBorder: OutlineInputBorder(
-                                    borderSide: BorderSide(
-                                        color: Colors.tealAccent, width: 2),
-                                    borderRadius: BorderRadius.all(
-                                      Radius.circular(15.0),
-                                    ),
-                                  ),
-                                ),
-                              ),
-                            ),
-                          ],
-                        ),
+                        const TextForm(1,
+                            heading: 'First Name',
+                            hintText: 'Please enter your first name',
+                            width: 350),
+                        const TextForm(1,
+                            heading: 'Email',
+                            hintText: 'Please enter your Email Address',
+                            width: 350),
+                      ],
+                    ),
+                    Column(
+                      children: [
+                        const TextForm(1,
+                            heading: 'Last Name',
+                            hintText: 'Please enter your Last name',
+                            width: 350),
+                        const TextForm(1,
+                            heading: 'Phone Number',
+                            hintText: 'Please enter your phone Number',
+                            width: 350),
                       ],
                     ),
                   ],
-                )
+                ),
+                TextForm(10,
+                    heading: 'Message',
+                    hintText: 'Please provide your message ',
+                    width: widthDevice / 1.5),
+                MaterialButton(
+                  height: 60.0,
+                  minWidth: 200.0,
+                  elevation: 20.0,
+                  color: Colors.tealAccent,
+                  onPressed: () {},
+                  shape: RoundedRectangleBorder(
+                    borderRadius: BorderRadius.circular(15.0),
+                  ),
+                  child: const SansBold('Submit', 20.0),
+                ),
               ],
             ),
-          )
+          ),
+          const SizedBox(height: 20.0),
         ],
       ),
     );

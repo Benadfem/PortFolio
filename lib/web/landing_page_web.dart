@@ -1,4 +1,6 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_svg/svg.dart';
+import 'package:url_launcher/url_launcher.dart';
 
 import '../components.dart';
 
@@ -15,7 +17,59 @@ class _LandingPageWebState extends State<LandingPageWeb> {
     var heightDevice = MediaQuery.of(context).size.height;
     var widthDevice = MediaQuery.of(context).size.width;
     return Scaffold(
-      drawer: const Drawer(),
+      drawer: Drawer(
+        backgroundColor: Colors.white,
+        child: Column(
+          mainAxisAlignment: MainAxisAlignment.center,
+          children: [
+            const CircleAvatar(
+              radius: 72.0,
+              backgroundColor: Colors.tealAccent,
+              child: CircleAvatar(
+                backgroundColor: Colors.white,
+                radius: 70.0,
+                backgroundImage: AssetImage('images/benson.png'),
+              ),
+            ),
+            const SizedBox(height: 15.0),
+            const SansBold('Adedara Benson', 30.0),
+            const SizedBox(height: 15.0),
+            Row(
+              mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+              children: [
+                IconButton(
+                  onPressed: () async {
+                    await launchUrl(
+                        Uri.parse('https://www.instagram.com/adedarabenson/'));
+                  },
+                  icon: SvgPicture.asset('images/isntagram.svg',
+                      fit: BoxFit.contain, width: 25, color: Colors.black),
+                ),
+                IconButton(
+                  onPressed: () async {
+                    await launchUrl(Uri.parse(
+                        'https://github.com/Benadfem?tab=repositories'));
+                  },
+                  icon: SvgPicture.asset(
+                    'images/github-icon.svg',
+                    fit: BoxFit.contain,
+                    width: 25,
+                    color: Colors.black,
+                  ),
+                ),
+                IconButton(
+                  onPressed: () async {
+                    await launchUrl(Uri.parse(
+                        'https://www.linkedin.com/in/adedoyin-adedara-212340142'));
+                  },
+                  icon: SvgPicture.asset('images/linkedin.svg',
+                      fit: BoxFit.contain, width: 25, color: Colors.black),
+                ),
+              ],
+            ),
+          ],
+        ),
+      ),
       backgroundColor: Colors.white,
       appBar: AppBar(
         iconTheme: const IconThemeData(
@@ -122,7 +176,7 @@ class _LandingPageWebState extends State<LandingPageWeb> {
           ),
           // second phase of the page
           SizedBox(
-            height: heightDevice / 1.5,
+            height: widthDevice / 1.9,
             child: Padding(
               padding: const EdgeInsets.all(50.0),
               child: Row(

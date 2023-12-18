@@ -42,7 +42,7 @@ class _LandingPageWebState extends State<LandingPageWeb> {
                     await launchUrl(
                         Uri.parse('https://www.instagram.com/adedarabenson/'));
                   },
-                  icon: SvgPicture.asset('images/isntagram.svg',
+                  icon: SvgPicture.asset('images/instagram.svg',
                       fit: BoxFit.contain, width: 25, color: Colors.black),
                 ),
                 IconButton(
@@ -83,15 +83,15 @@ class _LandingPageWebState extends State<LandingPageWeb> {
             Spacer(
               flex: 3,
             ),
-            TabsWeb('Home'),
+            TabsWeb(title: 'Home', route: '/'),
             Spacer(),
-            TabsWeb('Works'),
+            TabsWeb(title: 'Works', route: '/works'),
             Spacer(),
-            TabsWeb('Blog'),
+            TabsWeb(title: 'Blog', route: '/blog'),
             Spacer(),
-            TabsWeb('About'),
+            TabsWeb(title: 'About', route: '/about'),
             Spacer(),
-            TabsWeb('Contact'),
+            TabsWeb(title: 'Contact', route: '/contact'),
             Spacer(),
           ],
         ),
@@ -247,17 +247,17 @@ class _LandingPageWebState extends State<LandingPageWeb> {
                 Row(
                   mainAxisAlignment: MainAxisAlignment.spaceEvenly,
                   children: [
-                    AnimatedCardWeb(
+                    AnimatedCard(
                       imagePath: 'images/web.png',
                       text: 'Web Developmemt ',
                     ),
-                    AnimatedCardWeb(
+                    AnimatedCard(
                       imagePath: 'images/app.png',
                       text: 'App Developmemt ',
                       fit: BoxFit.contain,
                       reverse: true,
                     ),
-                    AnimatedCardWeb(
+                    AnimatedCard(
                       imagePath: 'images/firebase.png',
                       text: 'Back-end Development ',
                     )
@@ -272,40 +272,40 @@ class _LandingPageWebState extends State<LandingPageWeb> {
             child: Column(
               mainAxisAlignment: MainAxisAlignment.spaceEvenly,
               children: [
-                const SansBold('About me', 40),
+                const SansBold('Contact me', 40),
                 const Row(
                   mainAxisAlignment: MainAxisAlignment.spaceEvenly,
                   children: [
                     Column(
                       children: [
-                        const TextForm(1,
-                            heading: 'First Name',
+                        TextForm(1,
+                            text: 'First Name',
                             hintText: 'Please enter your first name',
-                            width: 350),
-                        const TextForm(1,
-                            heading: 'Email',
+                            containerWidth: 350),
+                        TextForm(1,
+                            text: 'Email',
                             hintText: 'Please enter your Email Address',
-                            width: 350),
+                            containerWidth: 350),
                       ],
                     ),
                     Column(
                       children: [
-                        const TextForm(1,
-                            heading: 'Last Name',
+                        TextForm(1,
+                            text: 'Last Name',
                             hintText: 'Please enter your Last name',
-                            width: 350),
-                        const TextForm(1,
-                            heading: 'Phone Number',
+                            containerWidth: 350),
+                        TextForm(1,
+                            text: 'Phone Number',
                             hintText: 'Please enter your phone Number',
-                            width: 350),
+                            containerWidth: 350),
                       ],
                     ),
                   ],
                 ),
                 TextForm(10,
-                    heading: 'Message',
+                    text: 'Message',
                     hintText: 'Please provide your message ',
-                    width: widthDevice / 1.5),
+                    containerWidth: widthDevice / 1.5),
                 MaterialButton(
                   height: 60.0,
                   minWidth: 200.0,

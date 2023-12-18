@@ -2,8 +2,9 @@ import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
 
 class TabsWeb extends StatefulWidget {
-  final String title;
-  const TabsWeb(this.title, {super.key});
+  final title;
+  final route;
+  const TabsWeb({super.key, required this.title, required this.route});
 
   @override
   State<TabsWeb> createState() => _TabsWebState();
@@ -13,35 +14,69 @@ class _TabsWebState extends State<TabsWeb> {
   var _isSelected = false;
   @override
   Widget build(BuildContext context) {
-    return MouseRegion(
-      onEnter: (_) => setState(() {
-        _isSelected = true;
-      }),
-      onExit: (_) => setState(() {
-        _isSelected = false;
-      }),
-      child: AnimatedDefaultTextStyle(
-        duration: const Duration(milliseconds: 100),
-        curve: Curves.elasticIn,
-        style: _isSelected
-            ? GoogleFonts.roboto(
-                shadows: [
-                  const Shadow(
-                    color: Colors.black,
-                    offset: Offset(0, -8),
-                  ),
-                ],
-                color: Colors.transparent,
-                fontSize: 25.0,
-                decorationThickness: 2,
-                decoration: TextDecoration.underline,
-                decorationColor: Colors.tealAccent,
-              )
-            : GoogleFonts.roboto(
-                fontSize: 23.0,
-                color: Colors.black,
-              ),
-        child: Text(widget.title),
+    return GestureDetector(
+      onTap: () {
+        Navigator.of(context).pushNamed(widget.route);
+      },
+      child: MouseRegion(
+        onEnter: (_) => setState(() {
+          _isSelected = true;
+        }),
+        onExit: (_) => setState(() {
+          _isSelected = false;
+        }),
+        child: AnimatedDefaultTextStyle(
+          duration: const Duration(milliseconds: 100),
+          curve: Curves.elasticIn,
+          style: _isSelected
+              ? GoogleFonts.roboto(
+                  shadows: [
+                    const Shadow(
+                      color: Colors.black,
+                      offset: Offset(0, -8),
+                    ),
+                  ],
+                  color: Colors.transparent,
+                  fontSize: 25.0,
+                  decorationThickness: 2,
+                  decoration: TextDecoration.underline,
+                  decorationColor: Colors.tealAccent,
+                )
+              : GoogleFonts.roboto(
+                  fontSize: 23.0,
+                  color: Colors.black,
+                ),
+          child: Text(widget.title),
+        ),
+      ),
+    );
+  }
+}
+
+class TabsMobile extends StatefulWidget {
+  final text;
+  final route;
+  const TabsMobile({super.key, required this.text, required this.route});
+
+  @override
+  State<TabsMobile> createState() => _TabsMobileState();
+}
+
+class _TabsMobileState extends State<TabsMobile> {
+  @override
+  Widget build(BuildContext context) {
+    return MaterialButton(
+      onPressed: () {
+        Navigator.of(context).pushNamed(widget.route);
+      },
+      elevation: 20.0,
+      color: Colors.black,
+      shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(5.0)),
+      height: 50.0,
+      minWidth: 200.0,
+      child: Text(
+        widget.text,
+        style: GoogleFonts.openSans(fontSize: 20.0, color: Colors.white),
       ),
     );
   }
@@ -101,17 +136,17 @@ class TextWithBorder extends StatelessWidget {
 }
 
 class TextForm extends StatelessWidget {
-  final String heading;
+  final String text;
   final String hintText;
   final int maxLine;
-  final double width;
+  final double containerWidth;
 
   const TextForm(
     this.maxLine, {
     super.key,
-    required this.heading,
+    required this.text,
     required this.hintText,
-    required this.width,
+    required this.containerWidth,
   });
 
   @override
@@ -121,12 +156,12 @@ class TextForm extends StatelessWidget {
         Column(
           crossAxisAlignment: CrossAxisAlignment.start,
           children: [
-            SansRegular(heading, 15),
+            SansRegular(text, 15),
             const SizedBox(
               height: 5,
             ),
             SizedBox(
-              width: width,
+              width: containerWidth,
               child: TextFormField(
                 maxLines: maxLine,
                 decoration: InputDecoration(
@@ -154,23 +189,27 @@ class TextForm extends StatelessWidget {
   }
 }
 
-class AnimatedCardWeb extends StatefulWidget {
+class AnimatedCard extends StatefulWidget {
   final imagePath;
   final text;
   final fit;
   final reverse;
-  const AnimatedCardWeb(
+  final height;
+  final width;
+  const AnimatedCard(
       {super.key,
       required this.imagePath,
       required this.text,
       this.fit,
-      this.reverse});
+      this.reverse,
+      this.height,
+      this.width});
 
   @override
-  State<AnimatedCardWeb> createState() => _AnimatedCardWebState();
+  State<AnimatedCard> createState() => _AnimatedCardState();
 }
 
-class _AnimatedCardWebState extends State<AnimatedCardWeb>
+class _AnimatedCardState extends State<AnimatedCard>
     with SingleTickerProviderStateMixin {
   late AnimationController _controller = AnimationController(
     vsync: this,
@@ -211,8 +250,8 @@ class _AnimatedCardWebState extends State<AnimatedCardWeb>
             children: [
               Image.asset(
                 widget.imagePath,
-                height: 200,
-                width: 200,
+                width: widget.width == null ? 200 : widget.width,
+                height: widget.height == null ? 200 : widget.height,
                 fit: widget.fit == null ? null : BoxFit.contain,
               ),
               const SizedBox(

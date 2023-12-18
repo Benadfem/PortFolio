@@ -41,8 +41,12 @@ class _ContactWebState extends State<ContactWeb> {
                     await launchUrl(
                         Uri.parse('https://www.instagram.com/adedarabenson/'));
                   },
-                  icon: SvgPicture.asset('images/instagram.svg',
-                      fit: BoxFit.contain, width: 25, color: Colors.black),
+                  icon: SvgPicture.asset(
+                    'images/instagram.svg',
+                    fit: BoxFit.contain,
+                    width: 25,
+                    color: Colors.black,
+                  ),
                 ),
                 IconButton(
                   onPressed: () async {
@@ -68,6 +72,28 @@ class _ContactWebState extends State<ContactWeb> {
             ),
           ],
         ),
+      ),
+      backgroundColor: Colors.white,
+      body: NestedScrollView(
+        headerSliverBuilder: (context, innerBoxIsScrolled) {
+          return <Widget>[
+            SliverAppBar(
+              expandedHeight: 400.0,
+              flexibleSpace: FlexibleSpaceBar(
+                background: Image.asset(
+                  'images/contact.jpg',
+                  fit: BoxFit.cover,
+                ),
+              ),
+              backgroundColor: Colors.white,
+              iconTheme: const IconThemeData(
+                color: Colors.black,
+                size: 25.0,
+              ),
+            ),
+          ];
+        },
+        body: const SingleChildScrollView(),
       ),
     );
   }

@@ -188,17 +188,13 @@ class _LandingPageWebState extends State<LandingPageWeb> {
                       'images/image-web.png',
                     ),
                   ),
-                  const SizedBox(
-                    width: 15.0,
-                  ),
+                  const SizedBox(width: 15.0),
                   const Column(
                     crossAxisAlignment: CrossAxisAlignment.start,
                     mainAxisAlignment: MainAxisAlignment.center,
                     children: [
                       SansBold('About me', 40),
-                      SizedBox(
-                        height: 15.0,
-                      ),
+                      SizedBox(height: 15.0),
                       SansRegular(
                           'Hello! I \'m Adedara Benson, I Specialise in Flutter Development ',
                           15),
@@ -208,9 +204,7 @@ class _LandingPageWebState extends State<LandingPageWeb> {
                       SansRegular(
                           'the art security for Android, Ios, Linux, Web and Windows ',
                           15),
-                      SizedBox(
-                        height: 10,
-                      ),
+                      SizedBox(height: 10),
                       Row(
                         children: [
                           // create a general class to hold the properties of the skills
@@ -218,17 +212,11 @@ class _LandingPageWebState extends State<LandingPageWeb> {
                           TextWithBorder('Flutter'),
                           SizedBox(width: 7.0),
                           TextWithBorder('Firebase'),
-                          SizedBox(
-                            width: 7.0,
-                          ),
+                          SizedBox(width: 7.0),
                           TextWithBorder('Ios'),
-                          SizedBox(
-                            width: 7.0,
-                          ),
+                          SizedBox(width: 7.0),
                           TextWithBorder('Android'),
-                          SizedBox(
-                            width: 7.0,
-                          ),
+                          SizedBox(width: 7.0),
                         ],
                       )
                     ],

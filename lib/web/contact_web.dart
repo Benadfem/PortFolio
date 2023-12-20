@@ -78,11 +78,12 @@ class _ContactWebState extends State<ContactWeb> {
         headerSliverBuilder: (context, innerBoxIsScrolled) {
           return <Widget>[
             SliverAppBar(
-              expandedHeight: 400.0,
+              expandedHeight: 500.0,
               flexibleSpace: FlexibleSpaceBar(
                 background: Image.asset(
                   'images/contact.jpg',
                   fit: BoxFit.cover,
+                  filterQuality: FilterQuality.high,
                 ),
               ),
               backgroundColor: Colors.white,
@@ -90,10 +91,85 @@ class _ContactWebState extends State<ContactWeb> {
                 color: Colors.black,
                 size: 25.0,
               ),
+              title: const Row(
+                children: [
+                  Spacer(
+                    flex: 3,
+                  ),
+                  TabsWeb(title: 'Home', route: '/'),
+                  Spacer(),
+                  TabsWeb(title: 'Works', route: '/work'),
+                  Spacer(),
+                  TabsWeb(title: 'Blog', route: '/blog'),
+                  Spacer(),
+                  TabsWeb(title: 'About', route: '/about'),
+                  Spacer(),
+                  TabsWeb(title: 'Contact', route: '/contact'),
+                  Spacer(),
+                ],
+              ),
             ),
           ];
         },
-        body: const SingleChildScrollView(),
+        body: SingleChildScrollView(
+          child: Column(
+            children: [
+              const SizedBox(height: 30.0),
+              const SansBold('Contact me', 40.0),
+              const SizedBox(height: 20.0),
+              const Row(
+                mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+                children: [
+                  Column(
+                    children: [
+                      TextForm(1,
+                          text: 'First Name',
+                          hintText: 'Please enter your first name',
+                          containerWidth: 350),
+                      TextForm(1,
+                          text: 'Email',
+                          hintText: 'Please enter your Email Address',
+                          containerWidth: 350),
+                    ],
+                  ),
+                  Column(
+                    children: [
+                      TextForm(1,
+                          text: 'Last Name',
+                          hintText: 'Please enter your Last name',
+                          containerWidth: 350),
+                      TextForm(1,
+                          text: 'Phone Number',
+                          hintText: 'Please enter your phone Number',
+                          containerWidth: 350),
+                    ],
+                  ),
+                ],
+              ),
+              TextForm(10,
+                  text: 'Message',
+                  hintText: 'Please provide your message ',
+                  containerWidth: deviceWidth / 1.5),
+              const SizedBox(
+                height: 10.0,
+              ),
+              MaterialButton(
+                height: 60.0,
+                minWidth: 200.0,
+                elevation: 20.0,
+                color: Colors.tealAccent,
+                onPressed: () {},
+                shape: RoundedRectangleBorder(
+                  borderRadius: BorderRadius.circular(15.0),
+                ),
+                child: const SansBold('Submit', 20.0),
+              ),
+              const SizedBox(
+                height: 40.0,
+              ),
+            ],
+          ),
+        ),
       ),
     );
   }

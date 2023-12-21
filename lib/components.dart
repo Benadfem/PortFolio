@@ -196,10 +196,11 @@ class AnimatedCard extends StatefulWidget {
   final reverse;
   final height;
   final width;
+
   const AnimatedCard(
       {super.key,
       required this.imagePath,
-      required this.text,
+      this.text,
       this.fit,
       this.reverse,
       this.height,
@@ -234,6 +235,8 @@ class _AnimatedCardState extends State<AnimatedCard>
     return SlideTransition(
       position: _animation,
       child: Card(
+        surfaceTintColor: Colors.transparent,
+        // color: Colors.white,
         elevation: 30,
         shape: RoundedRectangleBorder(
           borderRadius: BorderRadius.circular(15.0),
@@ -257,7 +260,9 @@ class _AnimatedCardState extends State<AnimatedCard>
               const SizedBox(
                 height: 10.0,
               ),
-              SansBold(widget.text, 15),
+              widget.text == null
+                  ? const SizedBox()
+                  : SansBold(widget.text, 15),
             ],
           ),
         ),

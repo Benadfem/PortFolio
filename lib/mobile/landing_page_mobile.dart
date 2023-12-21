@@ -32,22 +32,22 @@ class _LandingPageMobileState extends State<LandingPageMobile> {
     );
   }
 
+  Widget socialMedia(imageAsset, socialUrl) {
+    //create a function to build a widget Socialmedia Button
+    return IconButton(
+      onPressed: () async => await launchUrl(Uri.parse(socialUrl)),
+      icon: SvgPicture.asset(
+        imageAsset,
+        width: 35.0,
+        color: Colors.black,
+      ),
+    );
+  }
+
   @override
   Widget build(BuildContext context) {
     // var deviceHeight = MediaQuery.of(context).size.height;
     var deviceWidth = MediaQuery.of(context).size.width;
-
-    Widget socialMedia(imageAsset, socialUrl) {
-      //create a function to build a widget Socialmedia Button
-      return IconButton(
-        onPressed: () async => await launchUrl(Uri.parse(socialUrl)),
-        icon: SvgPicture.asset(
-          imageAsset,
-          width: 35.0,
-          color: Colors.black,
-        ),
-      );
-    }
 
     return Scaffold(
       backgroundColor: Colors.white,
@@ -107,9 +107,9 @@ class _LandingPageMobileState extends State<LandingPageMobile> {
         children: [
           //first phase
           Padding(
-            padding: const EdgeInsets.only(left: 20.0),
+            padding: const EdgeInsets.symmetric(horizontal: 20.0),
             child: Column(
-              crossAxisAlignment: CrossAxisAlignment.center,
+              crossAxisAlignment: CrossAxisAlignment.start,
               children: [
                 const CircleAvatar(
                   radius: 117.0,
@@ -149,7 +149,7 @@ class _LandingPageMobileState extends State<LandingPageMobile> {
                 ),
                 const SizedBox(height: 15.0),
                 const Row(
-                  mainAxisAlignment: MainAxisAlignment.center,
+                  mainAxisAlignment: MainAxisAlignment.start,
                   children: [
                     Wrap(
                       direction: Axis.vertical,

@@ -115,6 +115,30 @@ class SansRegular extends StatelessWidget {
   }
 }
 
+class AbelCustom extends StatelessWidget {
+  final text;
+  final size;
+  final weight;
+  final color;
+  const AbelCustom(
+      {super.key,
+      required this.text,
+      required this.size,
+      this.weight,
+      this.color});
+
+  @override
+  Widget build(BuildContext context) {
+    return Text(
+      text,
+      style: GoogleFonts.abel(
+          color: color == null ? Colors.black : color,
+          fontSize: size,
+          fontWeight: weight == null ? FontWeight.normal : weight),
+    );
+  }
+}
+
 class TextWithBorder extends StatelessWidget {
   // a customized widget that is used globally in the app for
   //showing text with border

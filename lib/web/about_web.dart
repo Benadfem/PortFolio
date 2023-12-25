@@ -14,7 +14,7 @@ class AboutWeb extends StatefulWidget {
 class _AboutWebState extends State<AboutWeb> {
   @override
   Widget build(BuildContext context) {
-    var widthDevice = MediaQuery.of(context).size.width;
+    var deviceWidth = MediaQuery.of(context).size.width;
     return Scaffold(
       drawer: Drawer(
         backgroundColor: Colors.white,
@@ -95,65 +95,145 @@ class _AboutWebState extends State<AboutWeb> {
           ],
         ),
       ),
-      body: ListView(children: [
-        SizedBox(
-          height: 500.0,
-          child: Row(
-            crossAxisAlignment: CrossAxisAlignment.center,
-            mainAxisAlignment: MainAxisAlignment.spaceAround,
-            children: [
-              const Column(
-                crossAxisAlignment: CrossAxisAlignment.start,
-                mainAxisAlignment: MainAxisAlignment.center,
-                children: [
-                  SansBold('About me', 40),
-                  SizedBox(height: 15.0),
-                  SansRegular(
-                      'Hello! I \'m Adedara Benson, I Specialise in Flutter Development ',
-                      15),
-                  SansRegular(
-                      'I strive to ensure outstanding perfomace with state of ',
-                      15),
-                  SansRegular(
-                      'the art security for Android, Ios, Linux, Web and Windows ',
-                      15),
-                  SizedBox(height: 10),
-                  Row(
-                    children: [
-                      // create a general class to hold the properties of the skills
-                      //using TextWithBorder
-                      TextWithBorder('Flutter'),
-                      SizedBox(width: 7.0),
-                      TextWithBorder('Firebase'),
-                      SizedBox(width: 7.0),
-                      TextWithBorder('Ios'),
-                      SizedBox(width: 7.0),
-                      TextWithBorder('Android'),
-                      SizedBox(width: 7.0),
-                    ],
-                  )
-                ],
-              ),
-              CircleAvatar(
-                radius: 147,
-                backgroundColor: Colors.tealAccent,
-                child: CircleAvatar(
-                  backgroundColor: Colors.black,
-                  radius: 143,
+      body: ListView(
+        children: [
+          //about me first section
+          SizedBox(
+            height: 500.0,
+            child: Row(
+              crossAxisAlignment: CrossAxisAlignment.center,
+              mainAxisAlignment: MainAxisAlignment.spaceAround,
+              children: [
+                const Column(
+                  crossAxisAlignment: CrossAxisAlignment.start,
+                  mainAxisAlignment: MainAxisAlignment.center,
+                  children: [
+                    SansBold('About me', 40),
+                    SizedBox(height: 15.0),
+                    SansRegular(
+                        'Hello! I \'m Adedara Benson, I Specialise in Flutter Development ',
+                        15),
+                    SansRegular(
+                        'I strive to ensure outstanding perfomace with state of ',
+                        15),
+                    SansRegular(
+                        'the art security for Android, Ios, Linux, Web and Windows ',
+                        15),
+                    SizedBox(height: 10),
+                    Row(
+                      children: [
+                        // create a general class to hold the properties of the skills
+                        //using TextWithBorder
+                        TextWithBorder('Flutter'),
+                        SizedBox(width: 7.0),
+                        TextWithBorder('Firebase'),
+                        SizedBox(width: 7.0),
+                        TextWithBorder('Ios'),
+                        SizedBox(width: 7.0),
+                        TextWithBorder('Android'),
+                        SizedBox(width: 7.0),
+                      ],
+                    )
+                  ],
+                ),
+                CircleAvatar(
+                  radius: 147,
+                  backgroundColor: Colors.tealAccent,
                   child: CircleAvatar(
-                    radius: 140,
-                    backgroundColor: Colors.white,
-                    child: Image.asset(
-                      'images/image-circle.png',
-                      filterQuality: FilterQuality.high,
+                    backgroundColor: Colors.black,
+                    radius: 143,
+                    child: CircleAvatar(
+                      radius: 140,
+                      backgroundColor: Colors.white,
+                      child: Image.asset(
+                        'images/image-circle.png',
+                        filterQuality: FilterQuality.high,
+                      ),
                     ),
                   ),
+                ),
+              ],
+            ),
+          ),
+
+//web development second section
+          Row(
+            mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+            children: [
+              const AnimatedCard(
+                imagePath: 'images/web.png',
+                height: 250.0,
+                width: 250.0,
+              ),
+              SizedBox(
+                width: deviceWidth / 3,
+                child: const Column(
+                  children: [
+                    SansBold('Wep Development', 30.0),
+                    SizedBox(height: 15.0),
+                    SansRegular(
+                        'i\'m here to build your presence online with the state of Web Apps',
+                        15.0),
+                  ],
+                ),
+              ),
+              const SizedBox(height: 20.0),
+            ],
+          ),
+          //App Development section
+          Row(
+            mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+            children: [
+              SizedBox(
+                width: deviceWidth / 3,
+                child: const Column(
+                  children: [
+                    SansBold('App Development', 30.0),
+                    SizedBox(height: 15.0),
+                    SansRegular(
+                        'So you need a high performance, responsive and beautiful App? '
+                        'DOn\'t worry we got you covered',
+                        15.0),
+                  ],
+                ),
+              ),
+              const AnimatedCard(
+                imagePath: 'images/app.png',
+                height: 250.0,
+                width: 250.0,
+                reverse: true,
+              ),
+            ],
+          ),
+          const SizedBox(height: 20.0),
+
+          //Back-End Development section
+          Row(
+            mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+            children: [
+              const AnimatedCard(
+                imagePath: 'images/firebase.png',
+                height: 250.0,
+                width: 250.0,
+              ),
+              SizedBox(
+                width: deviceWidth / 3,
+                child: const Column(
+                  children: [
+                    SansBold('Back-End Development', 30.0),
+                    SizedBox(height: 15.0),
+                    SansRegular(
+                        'Do you want your Back-End to be highly scalable and secure?'
+                        'let\'s have a conversation on how I can help you with that.',
+                        15.0),
+                  ],
                 ),
               ),
             ],
           ),
-        )
-      ]),
+          const SizedBox(height: 40.0),
+        ],
+      ),
     );
   }
 }

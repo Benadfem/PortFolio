@@ -1,6 +1,8 @@
 import 'package:benson/mobile/about_mobile.dart';
+import 'package:benson/mobile/blog_mobile.dart';
 import 'package:benson/mobile/contact_mobile.dart';
 import 'package:benson/web/about_web.dart';
+import 'package:benson/web/blog_web.dart';
 import 'package:benson/web/contact_web.dart';
 import 'package:flutter/material.dart';
 
@@ -38,6 +40,19 @@ class Routes {
                 return const AboutWeb();
               } else {
                 return const AboutMobile();
+              }
+            },
+          ),
+          settings: settings,
+        );
+      case '/blog':
+        return MaterialPageRoute(
+          builder: (_) => LayoutBuilder(
+            builder: (context, constraints) {
+              if (constraints.maxWidth > 800) {
+                return const BlogWeb();
+              } else {
+                return const BlogMobile();
               }
             },
           ),

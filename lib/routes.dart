@@ -1,9 +1,11 @@
 import 'package:benson/mobile/about_mobile.dart';
 import 'package:benson/mobile/blog_mobile.dart';
 import 'package:benson/mobile/contact_mobile.dart';
+import 'package:benson/mobile/works_mobile.dart';
 import 'package:benson/web/about_web.dart';
 import 'package:benson/web/blog_web.dart';
 import 'package:benson/web/contact_web.dart';
+import 'package:benson/web/works_web.dart';
 import 'package:flutter/material.dart';
 
 import 'mobile/landing_page_mobile.dart';
@@ -53,6 +55,19 @@ class Routes {
                 return const BlogWeb();
               } else {
                 return const BlogMobile();
+              }
+            },
+          ),
+          settings: settings,
+        );
+      case '/works':
+        return MaterialPageRoute(
+          builder: (_) => LayoutBuilder(
+            builder: (context, constraints) {
+              if (constraints.maxWidth > 800) {
+                return const WorksWeb();
+              } else {
+                return const WorksMobile();
               }
             },
           ),

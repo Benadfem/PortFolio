@@ -225,7 +225,8 @@ class _AboutMobileState extends State<AboutMobile> {
                   'Do you want your BackEnd to be highly scalable and secure?,'
                   ' lets have a conversation on how I can help you with that ',
                   15.0),
-              const SizedBox(height: 10.0),
+
+              const SizedBox(height: 50.0),
             ],
           ),
         ),
